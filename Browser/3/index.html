@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Нажмите мышью на страницу</div>
+<div id="coords"></div>
+<script>
+    document.addEventListener('click', function (event) {
+        document.getElementById('coords').textContent =
+            'Координаты: ( x: ' + event.clientX + ' y: ' + event.clientY + ' )';
+    })
+</script>
+</body>
+</html>

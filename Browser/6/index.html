@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kozlov Kirill</title>
+    <style>
+        label {
+            display: block;
+            margin: 20px 0 20px 0;
+        }
+        #salaryForm label {
+            margin: 10px 0 10px 0;
+        }
+        #result label {
+            margin: 20px 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+<label>Введите начисленную зарплату за следующие месяцы</label>
+<form id="salaryForm">
+    <label>Январь: <input type="number" value="300" name="m1" id="m1"></label>
+    <label>Февраль: <input type="number" value="200" name="m2" id="m2"></label>
+    <label>Март: <input type="number" value="500" name="m3" id="m3"></label>
+    <label>Апрель: <input type="number" value="250" name="m4" id="m4"></label>
+    <label>Май: <input type="number" value="350" name="m5" id="m5"></label>
+    <label>Июнь: <input type="number" value="500" name="m6" id="m6"></label>
+    <div id="result">
+        <label>Средняя зарплата: <input type="text" value="350" id="avg" readonly></label>
+    </div>
+    <button type="button" onclick="calcAvg()">Вычислить</button>
+    <button type="button" onclick="update()">Обновить</button>
+</form>
+<script>
+    function calcAvg() {
+        let form = document.forms.salaryForm;
+        let sum = 0;
+        for (let i = 1; i <= 6; i++) {
+            sum += Number(form['m'+i].value);
+        }
+        document.getElementById('avg').value = (sum/6).toFixed(2);
+    }
+
+    function update() {
+        document.getElementById('m1').value = 300;
+        document.getElementById('m2').value = 200;
+        document.getElementById('m3').value = 500;
+        document.getElementById('m4').value = 250;
+        document.getElementById('m5').value = 350;
+        document.getElementById('m6').value = 500;
+        document.getElementById('avg').value = 350;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #notification {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="input" placeholder="Напиши Абоба">
+<div id="notification">Текст изменён!</div>
+<script>
+    const input = document.getElementById('input');
+    const notification = document.getElementById('notification');
+    let timeoutId = null;
+
+    input.addEventListener('input', () => {
+        notification.style.display = 'block';
+
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+
+        timeoutId = setTimeout(() => {
+            notification.style.display = 'none';
+        }, 1500);
+    });
+</script>
+</body>
+</html>
